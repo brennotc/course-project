@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'course-project';
+  pageName: string;
+
+  onPageSelected(name: string) {
+    this.pageName = name;
+  }
 }
