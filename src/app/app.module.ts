@@ -12,6 +12,8 @@ import { ShoppingModule } from './shopping/shopping.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 import { AuthModule } from './auth/auth.module';
+import { StoreModule } from '@ngrx/store';
+import * as fromApp from './store/app.reducer';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { AuthModule } from './auth/auth.module';
     ShoppingModule,
     SharedModule,
     CoreModule,
-    AuthModule
+    AuthModule,
+    StoreModule.forRoot(fromApp.appReducer)
   ],
   bootstrap: [AppComponent],
 })
