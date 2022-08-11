@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { Ingredient } from '../../shared/ingredient.model';
-import { ShoppingService } from '../shopping.service';
 import * as fromShopping from '../store/shopping.reducer';
 import * as ShoppingActions from '../store/shopping.actions';
 import * as fromApp from '../../store/app.reducer';
@@ -16,7 +15,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   ingredients: Observable<{ ingredients: Ingredient[] }>;
   private igChangeSub: Subscription;
 
-  constructor(private shoppingService: ShoppingService, private store: Store<fromApp.AppState>) { }
+  constructor(private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
     this.ingredients = this.store.select('shopping');
